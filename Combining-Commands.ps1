@@ -29,12 +29,11 @@ if ($null -eq $variable) {
 } 
 
 $variable = "test"
-if($null -eq $variable)
-{
+if ($null -eq $variable) {
 	"No Value is Found"
 }
 
-if($null -eq $variable) { "Np Value is Found" } else { $variable }
+if ($null -eq $variable) { "Np Value is Found" } else { $variable }
 
 
 $variable = $null

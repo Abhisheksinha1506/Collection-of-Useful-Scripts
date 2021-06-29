@@ -20,10 +20,10 @@ $Svc.RequiredServices
 Get-Service | Get-Member -MemberType 'Method'
 
 # Selecting values from a PowerShell Object
-Get-Service -ServiceName * | Select-Object -Property 'Status','DisplayName'
+Get-Service -ServiceName * | Select-Object -Property 'Status', 'DisplayName'
 Get-Service -ServiceName *
 
 # Sorting values from Object
-Get-Service -ServiceName * | Select-Object -Property 'Status','DisplayName' |
-    Sort-Object -Property 'Status' -Descending
+Get-Service -ServiceName * | Select-Object -Property 'Status', 'DisplayName' |
+Sort-Object -Property 'Status' -Descending
     

@@ -19,13 +19,13 @@ $svc.RequiredServices
 Get-Service | Get-Member -MemberType 'Method'
 
 # Selecting values from a PowerShell Object
-Get-Service -ServiceName * | Select-Object -Property 'Status','DisplayName'
+Get-Service -ServiceName * | Select-Object -Property 'Status', 'DisplayName'
 
 # Sorting values from Object
-Get-Service -ServiceName * | Select-Object -Property 'Status','DisplayName' |
-    Sort-Object -Property 'Status' -Descending
+Get-Service -ServiceName * | Select-Object -Property 'Status', 'DisplayName' |
+Sort-Object -Property 'Status' -Descending
     
 # Filtering the objects
-Get-Service * | Select-Object -Property 'Status','DisplayName' |
-Where-Object -FilterScript {$_.Status -eq 'Running' -and $_.DisplayName -like "Windows*" |
+Get-Service * | Select-Object -Property 'Status', 'DisplayName' |
+Where-Object -FilterScript { $_.Status -eq 'Running' -and $_.DisplayName -like "Windows*" |
     Sort-Object -Property 'DisplayName' -Descending | Format-Table -AutoSize

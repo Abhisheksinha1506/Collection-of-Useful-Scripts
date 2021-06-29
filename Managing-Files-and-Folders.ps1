@@ -24,7 +24,7 @@ Get-ChildItem -Path $Location -Recurse -Include *.xlsx
 Get-ChildItem -Path $Location -Recurse -Exclude *.xlsx 
 
 # Get all item and filter by last write time
-Get-ChildItem -Path $Location -Recurse | Where-Object -FilterScript {($_.LastWriteTime -gt '2020-10-22')}
+Get-ChildItem -Path $Location -Recurse | Where-Object -FilterScript { ($_.LastWriteTime -gt '2020-10-22') }
 
 # Create Directory and File
 New-Item -Path "$($Location)\PSFolderNew" -ItemType Directory
@@ -43,4 +43,4 @@ Copy-Item -Path "$($Location)\Users\Users.xlsx" -Destination "$($Location)\Users
 Rename-Item -Path "$($Location)\Users\UsersCopy.xlsx" -NewName "UsersCopyCopy.xlsx"
 
 # Rename File Extensions
-Get-ChildItem "$($Location)\TextFiles\*.txt" | Rename-Item -NewName { $_.name -Replace '\.txt$','.bak' }
+Get-ChildItem "$($Location)\TextFiles\*.txt" | Rename-Item -NewName { $_.name -Replace '\.txt$', '.bak' }

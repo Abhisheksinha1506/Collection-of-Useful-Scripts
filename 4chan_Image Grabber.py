@@ -3,13 +3,13 @@
 import os
 import sys
 import urllib
-import urllib2
+import urllib
 import re
 import time
 
 if not len(sys.argv) >= 3:
-    print "Missing parameters."
-    print "Usage:    python 4chan.py <url> <folder>"
+    print("Missing parameters.")
+    print("Usage:    python 4chan.py <url> <folder>")
     sys.exit()
 
 threadurl = sys.argv[1]
@@ -21,38 +21,38 @@ exp_picname = re.compile('\d+\.(?:jpg|gif|png|jpeg)')
 ua = "Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.1.4) Gecko/20091007 Firefox/3.5.4"
 head = {'User-agent': ua}
 
-print "Thread %s going to folder %s" % (threadurl, subfolder)
+print("Thread %s going to folder %s" % (threadurl, subfolder))
 
-print "Fetching html..."
+print("Fetching html...")
 
-req = urllib2.Request(threadurl, None, head)
+req = urllib.Request(threadurl, None, head)
 try:
-    response = urllib2.urlopen(req)
-except urllib2.HTTPError, e:
+    response = urllib.urlopen(req)
+except urllib.HTTPError, e:
     if errorcount < 1:
         errorcount = 1
-        print "Request failed"
-        response = urllib2.urlopen(req)
-except urllib2.URLError, e:
+        print("Request failed")
+        response = urllib.urlopen(req)
+except urllib.URLError, e:
     if errorcount < 1:
         errorcount = 1
-        print "Request failed"
-        response = urllib2.urlopen(req)
+        print("Request failed")
+        response = urllib.urlopen(req)
 
 msg = response.read()
 errorcount = 0
 
-print "Received %d bytes" % len(msg)
+print("Received %d bytes" % len(msg))
 
 imgurls = exp_imgurl.findall(msg)
 
-print "Found %d images" % len(imgurls)
+print("Found %d images" % len(imgurls))
 
 if not os.path.exists(subfolder):
-    print "Folder %s does not exist. Creating..." % subfolder
+    print("Folder %s does not exist. Creating..." % subfolder)
     os.makedirs(subfolder)
 else:
-    print "Folder %s exists. I will just put all files in there." % subfolder
+    print("Folder %s exists. I will just put all files in there." % subfolder)
 
 totalnumber = len(list(set(imgurls)))
 
@@ -62,15 +62,15 @@ for i, img in enumerate(list(set(imgurls))):
     destination = os.path.join(subfolder, filename)
     if not os.path.isfile(destination):
         try:
-            print "Downloading %d/%d: %s" % (i+1, totalnumber, source)
+            print("Downloading %d/%d: %s" % (i+1, totalnumber, source))
             urllib.urlretrieve(source, destination)
             time.sleep(0.25)  # why?
         except urllib.ContentTooShortError:
-            print "Image download failed, retrying..."
+            print("Image download failed, retrying...")
             time.sleep(1)
             urllib.urlretrieve(source, destination)
             time.sleep(0.5)  # why?
     else:
-        print "File %s exists. Skipping..." % str(filename)
+        print("File %s exists. Skipping..." % str(filename))
 
-print "Aaaaaaand we are done. See you next time."
+print("Aaaaaaand we are done. See you next time.")

@@ -1,17 +1,14 @@
 # Create functions
-Function Display-Message()
-{
+Function Display-Message() {
 	Write-Host "My Message" 
 }
 
-Function Display-Message($Text)
-{
+Function Display-Message($Text) {
 	Write-Host $Text
 }
 
 # Change the function to use arguments
-Function Display-Message()
-{
+Function Display-Message() {
 	[String]$Value1 = $args[0]
 	[String]$Value2 = $args[1]
 
@@ -19,21 +16,19 @@ Function Display-Message()
 }
 
 # Change the function to use parameter
-Function Display-Message()
-{
+Function Display-Message() {
 	Param(
-    		[parameter(Mandatory=$true)]
-    		[String]$Text
+		[parameter(Mandatory = $true)]
+		[String]$Text
 	)
 	Write-Host $Text
 }
 
-Function Display-Message()
-{
+Function Display-Message() {
 	Param(
-    		[parameter(Mandatory=$true)]
-            [ValidateSet("Lexus","Porsche","Toyota","Mercedes-Benz","BMW","Honda","Ford","Chevrolet")]
-    		[String]$Text
+		[parameter(Mandatory = $true)]
+		[ValidateSet("Lexus", "Porsche", "Toyota", "Mercedes-Benz", "BMW", "Honda", "Ford", "Chevrolet")]
+		[String]$Text
 	)
 	Write-Host "I like to drive a "$Text
 }

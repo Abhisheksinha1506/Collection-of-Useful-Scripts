@@ -17,14 +17,14 @@ $jsonObject.'Windows Directory'
 $jsonObject = @{}
 $arrayList = New-Object System.Collections.ArrayList
 
-$arrayList.Add(@{"Name"="Reid";"Surname"="Randolph";"Gender"="M";})
-$arrayList.Add(@{"Name"="Scott";"Surname"="Best";"Gender"="M";})
-$arrayList.Add(@{"Name"="Isabel";"Surname"="Mays";"Gender"="F";})
-$arrayList.Add(@{"Name"="Marcia";"Surname"="Clark";"Gender"="F";})
+$arrayList.Add(@{"Name" = "Reid"; "Surname" = "Randolph"; "Gender" = "M"; })
+$arrayList.Add(@{"Name" = "Scott"; "Surname" = "Best"; "Gender" = "M"; })
+$arrayList.Add(@{"Name" = "Isabel"; "Surname" = "Mays"; "Gender" = "F"; })
+$arrayList.Add(@{"Name" = "Marcia"; "Surname" = "Clark"; "Gender" = "F"; })
 
-$employees = @{"Employees"=$arrayList;}
+$employees = @{"Employees" = $arrayList; }
 
-$jsonObject.Add("Data",$employees)
+$jsonObject.Add("Data", $employees)
 $jsonObject | ConvertTo-Json -Depth 10 
 
 

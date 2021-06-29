@@ -1,6 +1,5 @@
 # Basic Function
-function Add-FourNumbers()
-{
+function Add-FourNumbers() {
     param(
         [Int32]$first,
         [Int32]$second,
@@ -17,8 +16,7 @@ Add-FourNumbers -first 1 -second 1 -third 1 -fourth 1
 
 
 # Basic Function with Parameter Help
-function Add-FourNumbers()
-{
+function Add-FourNumbers() {
     param(
         [Int32]
         # Specifies the first number
@@ -41,8 +39,7 @@ function Add-FourNumbers()
 
 
 # Basic Function with Detailed Help
-function Add-FourNumbers()
-{
+function Add-FourNumbers() {
     param(
         [Int32]$first,
         [Int32]$second,

@@ -5,7 +5,7 @@ $variable = Get-ComputerInfo
 # PowerShell Pipes
 Get-Service | Sort-Object -property Status
 "I can now use PowerShell Pipe Commands!!" | Out-File "C:\Training\file.txt"
-Get-Service | WHERE {$_.status -eq "Running"} | SELECT displayname
+Get-Service | WHERE { $_.status -eq "Running" } | SELECT displayname
 
 # System Variables
 Get-ChildItem Env: #Returns all environment variables
